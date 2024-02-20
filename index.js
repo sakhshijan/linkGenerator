@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3000
+const port = 4000
 
 const configs = {
     "log": {
@@ -51,15 +51,15 @@ const configs = {
     "outbounds": [
         {
             "tag": "proxy",
-            "protocol": "###PROTOCOL###",
+            "protocol": "vless",
             "settings": {
                 "vnext": [
                     {
-                        "address": "###CLEANIP###",
-                        "port": "###PORT###",
+                        "address": "zula.ir",
+                        "port": 8443,
                         "users": [
                             {
-                                "id": "###UUID###",
+                                "id": "7337cd56-01a3-4e67-badd-9a47c852b092",
                                 "alterId": 0,
                                 "email": "t@t.tt",
                                 "security": "auto",
@@ -71,11 +71,11 @@ const configs = {
                 ]
             },
             "streamSettings": {
-                "network": "###NETWORK###",
+                "network": "ws",
                 "security": "tls",
                 "tlsSettings": {
-                    "allowInsecure": true,
-                    "serverName": "###SNI###",
+                    "allowInsecure": false,
+                    "serverName": "UsA.nulLeec.ToP",
                     "alpn": [
                         "h2",
                         "http/1.1"
@@ -84,9 +84,9 @@ const configs = {
                     "show": false
                 },
                 "wsSettings": {
-                    "path": "###PATH###/?ed=2048",
+                    "path": "/?ed=2048",
                     "headers": {
-                        "Host": "###SNI###"
+                        "Host": "UsA.nulLeec.ToP"
                     }
                 },
                 "sockopt": {
@@ -97,8 +97,10 @@ const configs = {
                 }
             },
             "mux": {
-                "enabled": false,
-                "concurrency": -1
+                "enabled": true,
+                "concurrency": 8,
+                "xudpConcurrency": 8,
+                "xudpProxyUDP443": "reject"
             }
         },
         {
@@ -184,7 +186,7 @@ app.get('/', async (req, res) => {
 
         configs.outbounds[0].protocol = 'vless';
         configs.outbounds[0].settings.vnext[0].port = config.port;
-        configs.outbounds[0].settings.vnext[0].address = "zula.ir";
+        configs.outbounds[0].settings.vnext[0].address = config.website;
         configs.outbounds[0].settings.vnext[0].users[0].id = config.id;
         configs.outbounds[0].streamSettings.network = 'ws';
         configs.outbounds[0].streamSettings.tlsSettings.serverName = config.serverName;
