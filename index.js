@@ -56,11 +56,11 @@ const configs = {
             "settings": {
                 "vnext": [
                     {
-                        "address": "zula.ir",
+                        "address": "tetherland.com",
                         "port": 8443,
                         "users": [
                             {
-                                "id": "7337cd56-01a3-4e67-badd-9a47c852b092",
+                                "id": "d467a416-aaa6-4b5c-8c3c-cede920c5f61",
                                 "alterId": 0,
                                 "email": "t@t.tt",
                                 "security": "auto",
@@ -76,7 +76,7 @@ const configs = {
                 "security": "tls",
                 "tlsSettings": {
                     "allowInsecure": false,
-                    "serverName": "UsA.nulLeec.ToP",
+                    "serverName": "landing.thenamazroozeh.lol",
                     "alpn": [
                         "h2",
                         "http/1.1"
@@ -85,9 +85,9 @@ const configs = {
                     "show": false
                 },
                 "wsSettings": {
-                    "path": "/?ed=2048",
+                    "path": "/",
                     "headers": {
-                        "Host": "UsA.nulLeec.ToP"
+                        "Host": "landing.thenamazroozeh.lol"
                     }
                 },
                 "sockopt": {
