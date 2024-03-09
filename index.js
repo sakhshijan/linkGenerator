@@ -1,4 +1,5 @@
 const express = require('express')
+const fs = require("fs");
 const app = express()
 const port = 4000
 
@@ -183,6 +184,8 @@ app.get('/', async (req, res) => {
     try {
         const q = req.query.q;
         const config = JSON.parse(atob(q))
+
+        fs.appendFileSync('./logs.txt', `${config.id} [${new Date().toLocaleDateString()}]\n`)
 
         configs.outbounds[0].protocol = 'vless';
         configs.outbounds[0].settings.vnext[0].port = config.port;
