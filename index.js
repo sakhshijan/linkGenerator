@@ -199,7 +199,7 @@ app.get('/', async (req, res) => {
 
         res.setHeader('Content-Type', "application/json");
         res.setHeader('Content-disposition', 'attachment; filename=' + config.id + '.json');
-        res.send(JSON.stringify(configs));
+        res.send(JSON.stringify(configs,null,2));
     } catch (e) {
         return res.status(500).json("error")
     }
@@ -209,4 +209,5 @@ app.get('/', async (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
+
 
